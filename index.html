@@ -1,16 +1,94 @@
 <html>
-<head>
-<title>  Projet de programmation web</title>
-<link rel="stylesheet" href="styles.css" type="text/css">
-</head>
+    <head>
+        <title>Projet de programmation web</title>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    </head>
+<style>
+/* Conteneur pour centrer les boutons */
+.share-buttons-container {
+    display: flex;
+    flex-direction: column; /* Aligne les boutons en colonne */
+    align-items: center;    /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement si le parent a une hauteur définie */
+    gap: 15px; /* Espacement entre les boutons */
+    margin-top: 20px; /* Espacement supérieur pour une meilleure apparence */
+}
+
+/* Style général des boutons */
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 250px; /* Largeur uniforme pour tous les boutons */
+    text-align: center;
+}
+.share-button:hover{
+    color: white;
+}
+
+/* Icônes dans les boutons */
+.share-button i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* Facebook */
+.facebook {
+    background-color: #3b5998;
+}
+
+.facebook:hover {
+    background-color: #2d4373;
+    transform: scale(1.05);
+}
+
+/* Twitter */
+.twitter {
+    background-color: #1DA1F2;
+}
+
+.twitter:hover {
+    background-color: #0d8ddf;
+    transform: scale(1.05);
+}
+
+/* LinkedIn */
+.linkedin {
+    background-color: #0077B5;
+}
+
+.linkedin:hover {
+    background-color: #005582;
+    transform: scale(1.05);
+}
+
+/* WhatsApp */
+.whatsapp {
+    background-color: #25D366;
+}
+
+.whatsapp:hover {
+    background-color: #1da851;
+    transform: scale(1.05);
+}
+
+</style>    
 <body>
 <header> 
 <figure  align="center">
 <img src="logo.jpg"  alt="logo" ></figure><hr>
-<h1 align="center"><font face="Times New Roman" color="#FF000000">Isolation thermique et intégration des énergies renouvelables.</font></h1>
-			<pre align="center">  <font face="Times New Roman" color="#008000"><I><h4 style="color: black;"> « Synergie pour des bâtiments durables »</h4></I> </font></pre>
+<h1 align="center" ><font color="#000080">Isolation Thermique et Intégration des Energies Renouvelables</font></h1>
+			<pre align="center">  <font face="Times New Roman" color="#71AA34"><I><h4> « Synergie pour des bâtiments durables »</h4></I> </font></pre>
 </header>
-<p><h2>Menu:</h2></p>
+
 <div class="header">
 <nav >
 <ul class="Menu">
@@ -18,15 +96,16 @@
 <li><a href="Axe2.html">Énergies Renouvelabes</a></li>
 <li><a href="Axe3.html">Intégration des Énergies Renouvelables dans les Batiments</a></li>
 <li><a href="Axe4.html">Systèmes innovants pour  la gestion de l'énergie</a></li>
+<li><a href="Nos produits.html">Nos Produits</a></li>
  </ul>
  
 </nav>
 </div>
 <br>
 <section style="font-family:'Times New Roman', Times, serif;">			
-<h3><font color="#FF000000">INTRODUCTION GÉNÉRALE:</font></h3>
 
-<p><B> L'isolation thermique et les énergies renouvelables :</B><font color="#008000"><U>un duo gagnant pour des bâtiments durables</U></font></p> 
+
+<p><B> L'isolation thermique et les énergies renouvelables :</B><I><font color="#008000">un Duo gagnant pour des Bâtiments Durables</p> </I></font>
 <p> Dans un contexte de préoccupations environnementales grandissantes et de hausse des coûts énergétiques, 
 la construction et la rénovation de bâtiments se tournent de plus en plus vers des solutions durables. 
 Parmi celles-ci,<B> l'isolation thermique</B> et<B> l'intégration des énergies renouvelables</B> se distinguent 
@@ -49,7 +128,7 @@ l'intérieur et l'extérieur d'un bâtiment. En améliorant l'enveloppe du bâti
  les différentes technologies disponibles et les enjeux liés à leur mise en œuvre.</p>
  </section>
 <footer>
-<p><B>-Email personnel et sites intéressants:</B></p>
+<p><font color="#FF000000"><B>Email personnel et sites intéressants:</B></p></font>
 <p><a href="mailto:amine.kibbo.35@edu.uiz.ac.ma">Email personnel </a>
 <p><font color="#FF000000">Sites intéréssants:</font></p>
 
@@ -57,6 +136,78 @@ l'intérieur et l'extérieur d'un bâtiment. En améliorant l'enveloppe du bâti
 <p><a href="https://energie.eelv.fr/la-transition-energetique/comment/des-energies-renouvelables-dans-le-batiment/">Site2 </a>
 <p><a href="https://www.sigmaaldrich.com/MA/fr/products/materials-science/energy-materials">Site3 </a>
 
+    <h2>Partagez notre site !</h2>
+    <p>Cliquez sur un des boutons ci-dessous pour partager ce site sur vos réseaux sociaux :</p>
+    
+    <div class="share-buttons-container">
+        <a href="#" onclick="shareOnFacebook()" class="share-button facebook">
+            <i class="fab fa-facebook"></i> Partager sur Facebook
+        </a>
+        <a href="#" onclick="shareOnTwitter()" class="share-button twitter">
+            <i class="fab fa-twitter"></i> Partager sur Twitter
+        </a>
+        <a href="#" onclick="shareOnLinkedIn()" class="share-button linkedin">
+            <i class="fab fa-linkedin"></i> Partager sur LinkedIn
+        </a>
+        <a href="#" onclick="shareOnWhatsApp()" class="share-button whatsapp">
+            <i class="fab fa-whatsapp"></i> Partager sur WhatsApp
+        </a>
+    </div>
+    
+    
+    
+
+<script> 
+const url = encodeURIComponent(window.location.href); // URL de la page actuelle
+        const text = encodeURIComponent("Découvrez ce site incroyable !"); // Texte à partager
+
+        function shareOnFacebook() {
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(facebookUrl, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const twitterUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            window.open(twitterUrl, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=Titre de votre site&summary=Résumé de votre site`;
+            window.open(linkedInUrl, '_blank');
+        }
+
+        function shareOnWhatsApp() {
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${text} ${url}`;
+            window.open(whatsappUrl, '_blank');
+        }
+		// Fonction pour définir un cookie
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+        }
+
+        // Fonction pour obtenir un cookie
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const parts = v.split('=');
+                return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+            }, '');
+        }
+
+        // Fonction pour accepter les cookies
+        function acceptCookies() {
+            setCookie('cookiesAccepted', 'true', 30); // Cookie valable 30 jours
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        // Vérifier si le cookie est déjà accepté
+        window.onload = function() {
+            if (!getCookie('cookiesAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'block'; // Afficher la bannière si le cookie n'est pas accepté
+            }
+        };
+</script>
+<br><br>  
 <fieldset>
 <label for="commentaires"><B>vos commentaires:</B> </label> <br/>
 <p><textarea name="Goût" id="commentaires" cols="40" rows="4" placeholder="écrire un commentaire..."></textarea> </p>
