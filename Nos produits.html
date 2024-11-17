@@ -1,0 +1,151 @@
+<html>
+<head>
+  <title>Nos produits</title>
+  <style>
+    /* Style global */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background-color: #0056b3;
+      color: white;
+      margin: 0;
+    }
+
+    #product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .product-card h2 {
+      font-size: 18px;
+      margin: 15px 10px;
+      color: #0056b3;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+      margin: 10px;
+    }
+
+    .product-card button {
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product-card button:hover {
+      background-color: #004080;
+    }
+
+    @media (max-width: 768px) {
+      #product-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Nos Produits</h1>
+  <div id="product-container"></div>
+  <script>
+    const products = [
+      {
+        name: 'Modules photovoltaique Jinko1',
+        image: 'jinkoN-Type_70673fa2-0181-4c8b-a9dd-3e446b7d6e3d.avif',
+        description: 'Système efficace pour la production éléctrique d’une puissance de 480Wc avec un prix de 1,180.00 DH'
+      },
+      {
+        name: 'Modules photovoltaique Jinko2',
+        image: 'JINKO2.avif',
+        description: 'Système efficace pour la production éléctrique d’une puissance de 580 Wc avec un prix de 1,250.00 DH'
+      },
+      {
+        name: 'BATTERIES PLOMB PUR POWERSAFE SBS XC 190Ah & 210Ah 12V',
+        image: 'gel_batteries.jpg',
+        description: 'Batterie efficace d’une capacité et un prix unitaire Égale 190Ah et un prix de 6,400.00 DH TTC '
+      },
+      {
+        name: 'Matériau isolant: POLYURÉTHANE - 600Gr',
+        image: 'poluoréthane2.jpg',
+        description: 'MOUSSE EXPANSIVE POLYURÉTHANE - 600Gr/120.00 DH'
+      },
+      {
+        name: 'Onduleur Solaire Hybride 3000W 220V MPPT',
+        image: 'Onduleur-Solaire-OFF-GRID-MUST-3KW-220V-AC-24V-DC.webp',
+        description: 'Onduleur Solaire Hybride efficace 3000W 220V MPPT/ le prix est 5.500,00 DH TTC'
+      },
+      {
+        name: 'New Energy Wind Energy Recycling Wind Turbine Blades Recycling Plant',
+        image: 'éolienne.avif',
+        description: 'Turbines éoliennes; Prix: 200,000.00 DH TTC'
+      }
+    ];
+
+    const productContainer = document.getElementById('product-container');
+
+    products.forEach(product => {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product-card';
+      productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h2>${product.name}</h2>
+        <p>${product.description}</p>
+        <button onclick="addToCart('${product.name}')">Ajouter au panier</button>
+      `;
+      productContainer.appendChild(productDiv);
+    });
+
+    function addToCart(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${productName} a été ajouté au panier!`);
+    }
+  </script>
+</body>
+</html>
