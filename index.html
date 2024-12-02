@@ -79,8 +79,113 @@
     background-color: #1da851;
     transform: scale(1.05);
 }
+/* Style de la bannière de cookies */
+#cookie-banner {
+  background-color: #8ab2db;  /* Couleur de fond principale */
+  color: white;  /* Texte en blanc pour un bon contraste */
+  position: fixed;  /* Fixe la bannière en bas de l'écran */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  font-family: Arial, sans-serif;  /* Police simple et moderne */
+  font-size: 16px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);  /* Ombre douce au-dessus de la bannière */
+  z-index: 9999;  /* S'assurer que la bannière est au-dessus du contenu */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #6d9fcd;  /* Bordure un peu plus foncée pour la séparation */
+}
 
-</style>    
+/* Style du texte */
+#cookie-banner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 85%;  /* Limite la largeur du texte pour qu'il ne soit pas trop large */
+}
+
+/* Style du lien */
+#cookie-banner a {
+  color: white;  /* Texte du lien en blanc */
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Style du bouton */
+#accept-cookies {
+  text-decoration: none;
+    font-weight: bold;
+    color: #004080;
+    padding:  10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Coupe le texte long avec "..." */
+    text-align: center;
+	margin: 10px auto; /* Centre les boutons horizontalement */
+}
+
+/* Effet de survol du bouton */
+#accept-cookies:hover {
+   background-color: #004080;
+    color: #fff;
+    transform: scale(1.05); /* Zoom léger au survol */
+}
+
+</style> 
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #registrationForm {
+            display: none; /* Masquer le formulaire par défaut */
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input, select {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color:#004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+			button {
+    text-align: center;
+    margin: 0 auto; /* Centre horizontalement */
+}
+			
+        }
+        button:hover {
+
+    text-decoration: none;
+    font-weight: bold;
+    color: #004080;
+    padding:  10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Coupe le texte long avec "..." */
+    text-align: center;
+			
+        }
+    </style>   
+	  
 <body>
 <header> 
 <figure  align="center">
@@ -97,15 +202,68 @@
 <li><a href="Axe3.html">Intégration des Énergies Renouvelables dans les Batiments</a></li>
 <li><a href="Axe4.html">Systèmes innovants pour  la gestion de l'énergie</a></li>
 <li><a href="Nos produits.html">Nos Produits</a></li>
+<li><a href="anex5.html">Calculateur de Puissances</a></li>
  </ul>
  
 </nav>
 </div>
+<h1 align="center"><font color="#8ab2db"> Inscription à notre formation</h1></font>
+<font><button id="registerButton" >Inscrire!!!</button></font>
+
+<div id="registrationForm">
+    <h2><font color="#004080">Formulaire d'inscription</h2></font>
+    <form id="form">
+        <label for="firstName"><font color="#000000">Prénom :</label></font>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName"><font color="#000000">Nom :</label></font>
+        <input type="text" id="lastName" required>
+
+        <label for="profession"><font color="#000000">Statut professionnel :</label></font>
+        <select id="profession" required>
+            <option value="">Sélectionnez votre statut</option>
+            <option value="Ingénieur">Ingénieur</option>
+            <option value="Technicien">Technicien</option>
+            <option value="Étudiant">Étudiant</option>
+            <option value="Autre">Autre</option>
+        </select>
+
+        <label for="age"><font color="#000000">Âge :</label></font>
+        <input type="number" id="age" required>
+
+        <label for="email"><font color="#000000">Email :</label></font>
+        <input type="email" id="email" required>
+
+        <label for="country"><font color="#000000">Pays d'origine :</label></font>
+        <input type="text" id="country" required>
+
+        <button type="submit">Soumettre</button>
+    </form>
+</div>
+
+<script>
+ // Afficher le formulaire lorsque le bouton est cliqué
+    document.getElementById('registerButton').onclick = function() {
+        document.getElementById('registrationForm').style.display = 'block';
+    };
+
+    // Gérer la soumission du formulaire
+    document.getElementById('form').onsubmit = function(event) {
+        event.preventDefault(); // Empêcher le rechargement de la page
+
+        // Afficher une boîte de dialogue de succès
+        alert('Inscription réussie !');
+
+        // Réinitialiser le formulaire
+        document.getElementById('form').reset();
+        document.getElementById('registrationForm').style.display = 'none'; // Masquer le formulaire après soumission
+    };
+</script>
 <br>
 <section style="font-family:'Times New Roman', Times, serif;">			
 
 
-<p><B> L'isolation thermique et les énergies renouvelables :</B><I><font color="#008000">un Duo gagnant pour des Bâtiments Durables</p> </I></font>
+<p><B> L'isolation thermique et les énergies renouvelables :</B><I><h4><font color="#005EB8"> "un Duo gagnant pour des Bâtiments Durables "</p></h4></I></font>
 <p> Dans un contexte de préoccupations environnementales grandissantes et de hausse des coûts énergétiques, 
 la construction et la rénovation de bâtiments se tournent de plus en plus vers des solutions durables. 
 Parmi celles-ci,<B> l'isolation thermique</B> et<B> l'intégration des énergies renouvelables</B> se distinguent 
@@ -128,9 +286,9 @@ l'intérieur et l'extérieur d'un bâtiment. En améliorant l'enveloppe du bâti
  les différentes technologies disponibles et les enjeux liés à leur mise en œuvre.</p>
  </section>
 <footer>
-<p><font color="#FF000000"><B>Email personnel et sites intéressants:</B></p></font>
+<p><font color="#005EB8"><B>Email personnel et sites intéressants:</B></p></font>
 <p><a href="mailto:amine.kibbo.35@edu.uiz.ac.ma">Email personnel </a>
-<p><font color="#FF000000">Sites intéréssants:</font></p>
+<p><font color="#005EB8">Sites intéréssants:</font></p>
 
 <p><a href="https://dexypro.fr/2024/06/05/tendances-2024-renovation-energetique-batiment/">Site1</a>
 <p><a href="https://energie.eelv.fr/la-transition-energetique/comment/des-energies-renouvelables-dans-le-batiment/">Site2 </a>
@@ -153,7 +311,23 @@ l'intérieur et l'extérieur d'un bâtiment. En améliorant l'enveloppe du bâti
             <i class="fab fa-whatsapp"></i> Partager sur WhatsApp
         </a>
     </div>
-    
+ 
+  <title>Site avec Cookies</title>
+  
+
+
+  <h2>Bienvenue sur notre site web !</h2>
+  <p>Ce site utilise des cookies pour améliorer votre expérience.</p>
+
+  
+  <div id="cookie-banner" class="cookie-banner">
+  <p>Nous utilisons des cookies pour améliorer votre expérience de navigation, analyser notre trafic et personnaliser les contenus. En poursuivant votre navigation, vous acceptez l'utilisation de ces cookies. Pour plus d'informations, consultez notre <a href="/politique-de-confidentialité">politique de confidentialité</a>.</p>
+  <button id="accept-cookies">Accepter</button>
+</div>
+
+  
+  <script src="scripts.js"></script>
+
     
     
 
@@ -180,13 +354,13 @@ const url = encodeURIComponent(window.location.href); // URL de la page actuelle
             const whatsappUrl = `https://api.whatsapp.com/send?text=${text} ${url}`;
             window.open(whatsappUrl, '_blank');
         }
-		// Fonction pour définir un cookie
+		
         function setCookie(name, value, days) {
             const expires = new Date(Date.now() + days * 864e5).toUTCString();
             document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
         }
 
-        // Fonction pour obtenir un cookie
+       
         function getCookie(name) {
             return document.cookie.split('; ').reduce((r, v) => {
                 const parts = v.split('=');
@@ -194,18 +368,55 @@ const url = encodeURIComponent(window.location.href); // URL de la page actuelle
             }, '');
         }
 
-        // Fonction pour accepter les cookies
+       
         function acceptCookies() {
             setCookie('cookiesAccepted', 'true', 30); // Cookie valable 30 jours
             document.getElementById('cookie-banner').style.display = 'none';
         }
 
-        // Vérifier si le cookie est déjà accepté
+        
         window.onload = function() {
             if (!getCookie('cookiesAccepted')) {
                 document.getElementById('cookie-banner').style.display = 'block'; // Afficher la bannière si le cookie n'est pas accepté
             }
         };
+
+
+
+
+if (!getCookie('cookies-accepted')) {
+  document.getElementById('cookie-banner').style.display = 'block'; // Affiche la bannière
+}
+
+
+document.getElementById('accept-cookies').onclick = function() {
+  setCookie('cookies-accepted', 'true', 365); // Crée un cookie valide pendant 365 jours
+  document.getElementById('cookie-banner').style.display = 'none'; // Cache la bannière
+};
+
+
+function setCookie(name, value, days) {
+  var d = new Date();
+  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000)); // Définit l'expiration du cookie
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+
+function getCookie(name) {
+  var nameEq = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(nameEq) == 0) {
+      return c.substring(nameEq.length, c.length);
+    }
+  }
+  return null;
+}
 </script>
 <br><br>  
 <fieldset>

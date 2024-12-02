@@ -1,0 +1,139 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <title>Calculateur de Puissances</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #005EB8; /* Changement ici */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, h3, h4 {
+            color: #004080; /* Changement ici */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #004080; /* Changement ici */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%; /* Optionnel pour occuper toute la largeur */
+            margin: 10px auto; /* Centre les boutons horizontalement */
+        }
+
+        button:hover {
+            
+    text-decoration: none;
+    font-weight: bold;
+    color: #004080;
+    padding:  10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Coupe le texte long avec "..." */
+    text-align: center;
+	
+        }
+* Effet de survol du bouton */
+button:hover {
+   background-color: #004080;
+    color: #fff;
+    transform: scale(1.05); /* Zoom léger au survol */
+}
+        label {
+            font-weight: bold;
+        }
+
+        h4 {
+            color: #000000; /* Changement ici */
+        }
+
+        /* Centrer le texte et les boutons dans le container */
+        .center-buttons {
+            text-align: center; /* Centrer les boutons */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculateur de Puissance PV et Turbine Éolienne</h2>
+
+    <h3>Calculateur de Panneau Solaire</h3>
+    <label for="pv_area"><font color="#000000">Surface du panneau (m²) :</label></font>
+    <input type="number" id="pv_area" placeholder="Entrez la surface en m²" required>
+    
+    <label for="pv_efficiency"><font color="#000000">Efficacité du panneau (%) :</label></font>
+    <input type="number" id="pv_efficiency" placeholder="Entrez l'efficacité en %" required>
+    
+    <label for="solar_irradiance"><font color="#000000">Irradiance solaire (W/m²) :</label></font>
+    <input type="number" id="solar_irradiance" placeholder="Entrez l'irradiance en W/m²" required>
+    
+    <div class="center-buttons">
+        <button onclick="calculatePV()">Calculer Puissance PV</button>
+    </div>
+    <h4 id="pv_result"></h4>
+
+    <h3>Calculateur de Turbine Éolienne</h3>
+    <label for="turbine_diameter"><font color="#000000">Diamètre de la turbine (m) :</label></font>
+    <input type="number" id="turbine_diameter" placeholder="Entrez le diamètre en m" required>
+    
+    <label for="wind_speed"><font color="#000000">Vitesse du vent (m/s) :</label></font>
+    <input type="number" id="wind_speed" placeholder="Entrez la vitesse du vent en m/s" required>
+    
+    <div class="center-buttons">
+        <button onclick="calculateWind()">Calculer Puissance Éolienne</button>
+    </div>
+    <h4 id="wind_result"></h4>
+</div>
+
+<script>
+    function calculatePV() {
+        const area = parseFloat(document.getElementById('pv_area').value);
+        const efficiency = parseFloat(document.getElementById('pv_efficiency').value) / 100;
+        const irradiance = parseFloat(document.getElementById('solar_irradiance').value);
+        
+        const power = area * efficiency * irradiance;
+        document.getElementById('pv_result').innerText = `Puissance PV : ${power.toFixed(2)} W`;
+    }
+
+    function calculateWind() {
+        const diameter = parseFloat(document.getElementById('turbine_diameter').value);
+        const windSpeed = parseFloat(document.getElementById('wind_speed').value);
+        
+        const sweptArea = Math.PI * Math.pow(diameter / 2, 2);
+        
+        const power = 0.5 * 1.225 * sweptArea * Math.pow(windSpeed, 3); 
+        document.getElementById('wind_result').innerText = `Puissance Éolienne : ${power.toFixed(2)} W`;
+    }
+</script>
+
+</body>
+</html>
